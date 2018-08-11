@@ -16,5 +16,5 @@ if [ "$MODE" = 'build' ]; then
 fi
 if [ "$MODE" = "deploy" ]; then
     echo -e '\nDeploying...'
-    dcd --version $py_ver --version-semver --tag $tag --verbose --dry-run $IMAGE:$py_ver-$tag
+    dcd --version $py_ver --version-semver --tag $tag --verbose $IMAGE:$py_ver-$tag
 fi
