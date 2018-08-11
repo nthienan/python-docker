@@ -4,12 +4,24 @@ services:
   - docker
 env:
   global:
-    - IMAGE_NAME=nthienan/python
+    - IMAGE=nthienan/python
+  matrix:
+    - VERSION=2.7 VARIANT=alpine3.8
+    - VERSION=3.6 VARIANT=alpine3.8
 install: true
 
-before_script:
-  - pip install --user -r requirements.txt
 script:
-  - ./builder.sh $IMAGE_NAME $TRAVIS_BRANCH
+  - ./builder.sh build $IMAGE $VERSION $VARIANT
 after_success:
+  - docker images
+
+before_deploy:
+  - pip install --user -r requirements.txt
+  - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
+deploy:
+  - provider: script
+    script: ./builder.sh deploy $IMAGE $VERSION $VARIANT
+    on:
+      branch: master
+after_deploy:
   - docker images
