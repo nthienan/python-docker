@@ -1,0 +1,15 @@
+sudo: required
+language: python3.6
+services:
+  - docker
+env:
+  global:
+    - IMAGE_NAME=nthienan/python
+install: true
+
+before_script:
+  - pip install --user -r requirements.txt
+script:
+  - ./builder.sh $IMAGE_NAME $TRAVIS_BRANCH
+after_success:
+  - docker images
