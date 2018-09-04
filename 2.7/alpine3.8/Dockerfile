@@ -1,8 +1,5 @@
 FROM python:2.7.15-alpine3.8
 
-RUN apk --no-cache update && \
-    apk --no-cache upgrade
-
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 

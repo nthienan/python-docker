@@ -1,8 +1,6 @@
 FROM python:3.6.6-stretch
 
 RUN mkdir -p /usr/src/app
-RUN apk --no-cache update && \
-    apk --no-cache upgrade
 
 WORKDIR /usr/src/app
 
