@@ -8,6 +8,7 @@ env:
   matrix:
     - VERSION=2.7 VARIANT=alpine3.8
     - VERSION=3.6 VARIANT=alpine3.8
+    - VERSION=3.6 VARIANT=stretch
 install: true
 
 script:
