@@ -9,6 +9,7 @@ env:
     - VERSION=2.7 VARIANT=alpine3.8
     - VERSION=3.6 VARIANT=alpine3.8
     - VERSION=3.6 VARIANT=stretch
+    - VERSION=3.10 VARIANT=alpine3.16
 install: true
 
 script:
